@@ -1,0 +1,135 @@
+.zoomin-embed {
+  --zoomin-bg: #ffffff;
+  --zoomin-fg: #111827; /* gray-900 */
+  --zoomin-border: #e5e7eb; /* gray-200 */
+  --zoomin-header-bg: #ffffff;
+  --zoomin-header-fg: #111827;
+  --zoomin-btn-bg: #ffffff;
+  --zoomin-btn-fg: #111827;
+  --zoomin-btn-border: #d1d5db;
+  --zoomin-btn-bg-hover: #f3f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  .zoomin-embed {
+    --zoomin-bg: #111827;
+    --zoomin-fg: #f9fafb;
+    --zoomin-border: #374151; /* gray-700 */
+    --zoomin-header-bg: rgba(17, 24, 39, 0.92);
+    --zoomin-header-fg: #f9fafb;
+    --zoomin-btn-bg: #1f2937;
+    --zoomin-btn-fg: #f3f4f6;
+    --zoomin-btn-border: #4b5563;
+    --zoomin-btn-bg-hover: #374151;
+  }
+}
+
+.zoomin-embed {
+  background: transparent;
+  border-radius: 16px; /* Matches Google's typical knowledge panel border radius */
+  margin: 12px 0 20px 0;
+  overflow: hidden;
+  border: none;
+  box-shadow: none;
+}
+
+.zoomin-embed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--zoomin-border);
+  background: var(--zoomin-header-bg);
+  color: var(--zoomin-header-fg);
+  backdrop-filter: saturate(140%) blur(6px);
+  font-weight: 600;
+}
+
+.zoomin-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--zoomin-header-fg);
+  letter-spacing: -0.2px;
+}
+
+.zoomin-embed .zoomin-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.zoomin-embed .zoomin-actions button.zoomin-btn-icon {
+  appearance: none;
+  border: 1px solid var(--zoomin-btn-border);
+  background: var(--zoomin-btn-bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--zoomin-btn-fg);
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.zoomin-embed .zoomin-actions button {
+  appearance: none;
+  border: 1px solid var(--zoomin-btn-border);
+  background: var(--zoomin-btn-bg);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--zoomin-btn-fg);
+}
+
+.zoomin-embed .zoomin-actions button:hover {
+  background: var(--zoomin-btn-bg-hover);
+}
+
+.zoomin-embed .zoomin-actions button.zoomin-btn-icon:hover {
+  background: var(--zoomin-btn-bg-hover);
+  transform: scale(1.05);
+}
+
+.zoomin-embed .zoomin-actions button:focus-visible {
+  outline: 2px solid #2563eb; /* blue-600 */
+  outline-offset: 2px;
+}
+
+.zoomin-embed-body {
+  transition: max-height 0.2s ease;
+}
+
+.zoomin-embed.collapsed .zoomin-embed-body {
+  max-height: 0;
+}
+
+.zoomin-embed.collapsed iframe {
+  display: none;
+}
+
+.zoomin-embed.sticky {
+  position: sticky;
+  top: 12px;
+  z-index: 10;
+}
+
+/* When no right rail exists, use a floating right panel */
+.zoomin-embed.floating-right {
+  position: fixed;
+  right: 24px;
+  top: 96px;
+  width: 420px;
+  max-height: 78vh;
+  z-index: 1000;
+}
+
+.zoomin-embed.floating-right .zoomin-embed-body iframe {
+  /* Let aspect-ratio: 1 / 1 dictate the height */
+}
+
+
